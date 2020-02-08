@@ -231,7 +231,8 @@ export const timewarpParser = (args = []) => {
 export const crossingParser = (args = []) => {
     const fix = args[0];
     const altitude = convertToThousands(args[1]);
+    const speed = args[2];
     // TODO: Add logic for speeds at fix (eg "250K" means to cross at 250kt, while "250" means cross at FL250)
 
-    return [fix, altitude];
+    return [fix, altitude, speed];
 };

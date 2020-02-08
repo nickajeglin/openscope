@@ -319,12 +319,13 @@ export const squawkValidator = (args = []) => {
  * @return {array<string>}
  */
 export const crossingValidator = (args = []) => {
-    if (args.length !== 2) {
+    if (args.length !== 3) {
         return ERROR_MESSAGE.TWO_ARG_LENGTH;
     }
 
     const [fixName] = args;
     let altitude = args[1];
+    let speed = args[1];
 
     if (!_isString(fixName)) {
         return ERROR_MESSAGE.MUST_BE_STRING;
@@ -334,5 +335,11 @@ export const crossingValidator = (args = []) => {
 
     if (_isNaN(altitude)) {
         return ERROR_MESSAGE.ALTITUDE_MUST_BE_NUMBER;
+    }
+
+    speed = convertStringToNumber(speed);
+
+    if (_isNaN(speed)) {
+        return ERROR_MESSAGE.SPEED_MUST_BE_NUMBER;
     }
 };
