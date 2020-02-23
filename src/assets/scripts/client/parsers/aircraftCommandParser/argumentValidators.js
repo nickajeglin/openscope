@@ -325,7 +325,7 @@ export const crossingValidator = (args = []) => {
 
     const [fixName] = args;
     let altitude = args[1];
-    let speed = args[1];
+    let speed = args[2];
 
     if (!_isString(fixName)) {
         return ERROR_MESSAGE.MUST_BE_STRING;
